@@ -1,0 +1,101 @@
+body {
+    background: #f6f7f9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background: #fff;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 2rem 2.5rem 2.5rem 2.5rem;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(60, 72, 88, 0.10);
+    text-align: center;
+}
+h2, h3 {
+    color: #4e5d4e;
+    margin-bottom: 1rem;
+}
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #f3f4f6;
+    font-size: 1rem;
+    transition: border 0.2s;
+}
+input[type="text"]:focus, input[type="password"]:focus {
+    border: 1.5px solid #7bb274;
+    outline: none;
+}
+button {
+    background: #7bb274;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #5e8c61;
+}
+.logout-btn {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    background: #e57373;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+.logout-btn:hover {
+    background: #c94f4f;
+}
+ul#task-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+ul#task-list li {
+    background: #f3f4f6;
+    margin-bottom: 0.7rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 4px rgba(60, 72, 88, 0.06);
+}
+ul#task-list li input[type="checkbox"] {
+    accent-color: #7bb274;
+    width: 1.1em;
+    height: 1.1em;
+}
+ul#task-list li button {
+    background: #e57373;
+    color: #fff;
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+ul#task-list li button:hover {
+    background: #c94f4f;
+}
+.flashes {
+    color: #e57373;
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+} 

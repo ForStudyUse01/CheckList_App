@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Checklist App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{ username }}! 👋</h2>
+        <a href="/logout" class="logout-btn">Logout</a>
+        <h3>Your Checklist</h3>
+        <form id="add-task-form">
+            <input type="text" id="new-task" placeholder="Add a new task..." required>
+            <button type="submit">Add</button>
+        </form>
+        <ul id="task-list"></ul>
+    </div>
+    <script>
+        function fetchTasks() {
+            fetch('/api/tasks')
+                .then(res => res.json())
+                .then(tasks => {
+                    const list = document.getElementById('task-list');
+                    list.innerHTML = '';
+                    tasks.forEach(task => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<input type='checkbox' ${task.is_done ? 'checked' : ''} onchange='toggleTask(${task.id}, this.checked)'> ` +
+                            `<span style='${task.is_done ? 'text-decoration: line-through;' : ''}'>${task.description}</span> ` +
+                            `<button onclick='deleteTask(${task.id})'>🗑️</button>`;
+                        list.appendChild(li);
+                    });
+                });
+        }
+        function addTask(e) {
+            e.preventDefault();
+            const desc = document.getElementById('new-task').value;
+            fetch('/api/tasks', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ description: desc })
+            }).then(() => {
+                document.getElementById('new-task').value = '';
+                fetchTasks();
+            });
+        }
+        function toggleTask(id, is_done) {
+            fetch(`/api/tasks/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ is_done })
+            }).then(fetchTasks);
+        }
+        function deleteTask(id) {
+            fetch(`/api/tasks/${id}`, { method: 'DELETE' })
+                .then(fetchTasks);
+        }
+        document.getElementById('add-task-form').addEventListener('submit', addTask);
+        window.onload = fetchTasks;
+    </script>
+</body>
+</html> 
