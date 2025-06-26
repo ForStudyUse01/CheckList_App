@@ -49,8 +49,5 @@ A simple and modern checklist app built with Flask, REST API, and MySQL! 🚀
 - Login to your dashboard.
 - Add, check, or delete your tasks!
 
-## 🤝 Contributing
-Pull requests are welcome! For major changes, please open an issue first.
-
-## 📄 License
-This project is licensed under the MIT License. 
+## 🤝 Made BY
+Yuvraj Gandhi - using FLASK
